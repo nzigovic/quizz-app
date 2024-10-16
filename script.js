@@ -1,0 +1,66 @@
+const questions = [
+    {
+        questions: "Koliko je 9x8?",
+        answers: [
+            {text:"72", correct:true},
+            {text:"68", correct:false},
+            {text:"82", correct:false},
+            {text:"92", correct:false},
+        ]
+    },{
+        questions: "Koliko je 7x7?",
+        answers: [
+            {text:"", correct:false},
+            {text:"68", correct:false},
+            {text:"63", correct:true},
+            {text:"52", correct:false},
+        ]
+    },
+    {
+        questions: "Koliko je 9x4?",
+        answers: [
+            {text:"28", correct:false},
+            {text:"36", correct:true},
+            {text:"38", correct:false},
+            {text:"33", correct:false},
+        ]
+    }
+];
+
+
+const  questionElement = document.getElementById("question");
+const odgovori = document.getElementById("odgovor");
+const sledeceBtn = document.getElementById("sledece-btn");
+
+
+
+let currentQuestionIndex = 0 ;
+let score = 0 ;
+
+
+function startquiz (){
+    currentQuestionIndex = 0;
+    score = 0 ;
+    sledeceBtn.innerHTML = "Sledece";
+    showQueustion()
+}
+
+
+function showQueustion (){
+    let currentquestion = questions [currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + "." + currentquestion.
+    questions;
+
+    currentquestion.answers.forEach(answers =>
+    {
+        const button = document.createElement("button");
+        button.innerHTML = answers.text;
+        button.classList.add("btn");
+        answerButton.appendChild(button);
+        
+    }
+    )
+}
+
+startquiz ();
