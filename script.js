@@ -1,6 +1,6 @@
 const questions = [
     {
-        questions: "Koliko je 9x8?",
+        question: "Koliko je 9x8?", 
         answers: [
             {text:"72", correct:true},
             {text:"68", correct:false},
@@ -8,7 +8,7 @@ const questions = [
             {text:"92", correct:false},
         ]
     },{
-        questions: "Koliko je 7x7?",
+        question: "Koliko je 7x7?", 
         answers: [
             {text:"", correct:false},
             {text:"68", correct:false},
@@ -17,7 +17,7 @@ const questions = [
         ]
     },
     {
-        questions: "Koliko je 9x4?",
+        question: "Koliko je 9x4?", 
         answers: [
             {text:"28", correct:false},
             {text:"36", correct:true},
@@ -27,40 +27,32 @@ const questions = [
     }
 ];
 
-
-const  questionElement = document.getElementById("question");
-const odgovori = document.getElementById("odgovor");
+const questionElement = document.getElementById("question");
+const odgovori = document.getElementById("odgovor"); 
 const sledeceBtn = document.getElementById("sledece-btn");
 
+let currentQuestionIndex = 0;
+let score = 0;
 
-
-let currentQuestionIndex = 0 ;
-let score = 0 ;
-
-
-function startquiz (){
+function startquiz() {
     currentQuestionIndex = 0;
-    score = 0 ;
+    score = 0;
     sledeceBtn.innerHTML = "Sledece";
-    showQueustion()
+    showQuestion();
 }
 
-
-function showQueustion (){
-    let currentquestion = questions [currentQuestionIndex];
+function showQuestion() {
+    let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = questionNo + "." + currentquestion.
-    questions;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
-    currentquestion.answers.forEach(answers =>
-    {
+    odgovori.innerHTML = ""; 
+    currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
-        button.innerHTML = answers.text;
+        button.innerHTML = answer.text;
         button.classList.add("btn");
-        answerButton.appendChild(button);
-        
-    }
-    )
+        odgovori.appendChild(button);
+    });
 }
 
-startquiz ();
+startquiz();
