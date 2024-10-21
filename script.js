@@ -52,7 +52,31 @@ function showQuestion() {
         button.innerHTML = answer.text;
         button.classList.add("btn");
         odgovori.appendChild(button);
-    });
+        if(answer.correct){
+            button.dataset.correct = answer.correct;
+        }
+        
+        button.addEventListener("click", selectAnswer)
+        });
+}
+
+
+function selectAnswer (e){
+    const selectedBtn = e.target ;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    if (isCorrect){
+        selectedBtn.classList.add ("correct");
+
+    }else {
+        selectedBtn.classList.add("incorrect");
+    }
+    Array.from(answerButtons.childre).forEach(button => {
+        if(button.dataset.correct === "true"){
+            button.classList.add("correct");
+
+        }
+        button.disabled = "true"
+    })
 }
 
 startquiz();

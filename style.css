@@ -35,7 +35,6 @@ body {
     font-weight: 600;
 }
 
-/* Ispravljeno: koristi klasu .btn umesto ID-ja */
 .btn {
     background-color: white;
     color: #222;
@@ -67,3 +66,15 @@ body {
     cursor: pointer;
     display: none;
 }
+
+.incorrect {
+    background-color: red;
+    color: white;
+}
+
+
+.correct {
+    background-color: rgb(27, 170, 27);
+    color: white;
+}
+
