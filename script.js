@@ -66,17 +66,56 @@ function selectAnswer (e){
     const isCorrect = selectedBtn.dataset.correct === "true";
     if (isCorrect){
         selectedBtn.classList.add ("correct");
+        score++ ;
 
     }else {
         selectedBtn.classList.add("incorrect");
     }
-    Array.from(answerButtons.childre).forEach(button => {
+        Array.from(odgovori.children).forEach(button => {
         if(button.dataset.correct === "true"){
             button.classList.add("correct");
 
         }
         button.disabled = "true"
-    })
+    });
+    sledeceBtn.style.display = "block";
 }
 
+sledeceBtn.addEventListener("click", ()=> {
+    if(currentQuestionIndex < questions.length){
+        handleNextButton();
+    }
+    else{
+        startquiz()
+    }
+}) 
+
+
+function resetStat(){
+    sledeceBtn.style.display = "none"
+    while(odgovori.firstChild){
+        odgovori.removeChild(odgovori.firstChild)
+    }
+}
+
+    function showQuestion(){
+        resetStat()
+        questionElement.innerHTML =    `Tvoj rezultat je ${score} od mogucih ${questions.length}!` ; 
+        sledeceBtn.innerHTML = "Ponovi";
+        sledeceBtn.style.display  = "block"
+    }
+
+
+
+    function handleNextButton (){
+        currentQuestionIndex++;
+        if(currentQuestionIndex < questions.length){
+            showQuestion();
+
+        }else{
+            showQuestion()
+        }
+    }
+
 startquiz();
+

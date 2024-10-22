@@ -49,9 +49,13 @@ body {
     transition: all 0.4s;
 }
 
-.btn:hover {
+.btn:hover:non([disabled]){
     background-color: #222;
     color: white;
+}
+
+.btn:disabled {
+    cursor: no-drop;
 }
 
 #sledece-btn {
