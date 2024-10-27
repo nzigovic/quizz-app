@@ -117,5 +117,5 @@ function resetStat(){
         }
     }
 
-startquiz();
+startquiz()
 
