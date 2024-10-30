@@ -107,15 +107,16 @@ function resetStat(){
 
 
 
-    function handleNextButton (){
-        currentQuestionIndex++;
-        if(currentQuestionIndex < questions.length){
-            showQuestion();
+ //   function handleNextButton (){
+   
+ 
+ //currentQuestionIndex++;
+   //     if(currentQuestionIndex < questions.length){
+     //       showQuestion();
 
-        }else{
-            showQuestion()
-        }
-    }
+       // }else{
+         //   showQuestion()
+        //}
+    //}
 
 startquiz()
-
